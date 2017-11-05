@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>campfire</title>
+</head>
+<style>
+	
+	@keyframes flameSize {
+		0% {transform: scale(0.2) translate(0,0) rotateZ(45deg)}
+		45% {transform: scale(0.6) translate(20px,-175px) rotateZ(45deg)}
+		60% {transform: scale(0.8) translate(-50px,-200px) rotateZ(45deg)}
+		85% {transform: scale(1.1) translate(50px,-240px) rotateZ(45deg)}
+		100% {transform: scale(1.3) translate(-50px,-250px) rotateZ(45deg)}
+	}
+	@-webkit-keyframes flameSize {
+	  0% {transform: scale(0.2) translate(0,0) rotateZ(45deg)}
+		45% {transform: scale(0.6) translate(20px,-175px) rotateZ(45deg)}
+		60% {transform: scale(0.8) translate(-50px,-200px) rotateZ(45deg)}
+		85% {transform: scale(1.1) translate(50px,-240px) rotateZ(45deg)}
+		100% {transform: scale(1.3) translate(-50px,-250px) rotateZ(45deg)}
+	}
+	
+	@keyframes flameSizeOp {
+		0% {transform: scale(0.2) translate(0,0) rotateZ(45deg)}
+		45% {transform: scale(0.6) translate(-20px,-175px) rotateZ(45deg)}
+		60% {transform: scale(0.8) translate(50px,-200px) rotateZ(45deg)}
+		85% {transform: scale(1.1) translate(-50px,-240px) rotateZ(45deg)}
+		100% {transform: scale(1.3) translate(50px,-250px) rotateZ(45deg)}
+	}
+	@-webkit-keyframes flameSizeOp {
+	  0% {transform: scale(0.2) translate(0,0) rotateZ(45deg)}
+		45% {transform: scale(0.6) translate(-20px,-175px) rotateZ(45deg)}
+		60% {transform: scale(0.8) translate(50px,-200px) rotateZ(45deg)}
+		85% {transform: scale(1.1) translate(-50px,-240px) rotateZ(45deg)}
+		100% {transform: scale(1.3) translate(50px,-250px) rotateZ(45deg)}
+	}
+	@keyframes flameColor {
+		0% { background-color: #ffc607;}
+		45% { background-color: #fba200;}
+		60% { background-color: #fa7d00;}
+		85% { background-color: #7a260b;}
+		100% { background-color: #7a260b;}
+	}
+	@-webkit-keyframes flameColor {
+	  0% { background-color: #ffc607;}
+		45% { background-color: #fba200;}
+		60% { background-color: #fa7d00;}
+		85% { background-color: #7a260b;}
+		100% { background-color: #7a260b;}
+	}
+	@keyframes flameOpacity {
+		0% { opacity: 0}
+		45% { opacity: 1}
+		60% { opacity: 0.7}
+		85% { opacity: 1}
+		100% { opacity: 0}
+	}
+	@-webkit-keyframes flameOpacity {
+		0% { opacity: 0}
+		45% { opacity: 1}
+		60% { opacity: 0.7}
+		85% { opacity: 1}
+		100% { opacity: 0}
+	}
+	html{
+		background-color: #0f1216;
+	}
+	#campfire{
+		height: 500px;
+		width: 500px;
+		position: relative;
+
+	}
+	#campfire .wood .stick{
+		height: 25px;
+		width: 180px;
+		border-radius: 5px;
+		position: absolute;
+		bottom: 0;
+		right: 37%;
+		transform:rotateZ(15deg);
+		background-color: #70382d;
+	}
+	#campfire .wood .oppsite{
+		transform:rotateZ(-15deg);
+		background-color: #602e25;
+	}
+
+	#campfire .fire .flame{
+		height: 80px;
+		width: 80px;
+		background-color: #CD3700;
+		border-radius: 10px;
+		position: absolute;
+		bottom: 0;
+		right: 50%;
+		transform:rotateZ(45deg);
+		opacity: 0;
+		animation: flameSize 2.5s infinite,flameColor 2.5s infinite, flameOpacity 2.5s infinite ease-out;
+		-webkit-animation: flameSize 2.5s infinite,flameColor 2.5s infinite,flameOpacity 2.5s infinite ease-out;
+	}
+	#campfire .fire .oppsite{
+		left: 40%;
+		animation: flameSizeOp 2.5s infinite,flameColor 2.5s infinite, flameOpacity 2.5s infinite ease-out;
+		-webkit-animation: flameSizeOp 2.5s infinite,flameColor 2.5s infinite,flameOpacity 2.5s infinite ease-out;
+	}
+	#campfire .fire .delay0_3{
+		animation-delay:0.3s;
+	}
+	#campfire .fire .delay1{
+		animation-delay:1s;
+	}
+	#campfire .fire .delay1_3{
+		animation-delay:1.3s;
+	}
+	#campfire .fire .delay2{
+		animation-delay:2s;
+	}
+	#campfire .fire .delay2_3{
+		animation-delay:2.3s;
+	}
+	
+
+	
+
+</style>
+<body>
+	<div id="campfire">
+			<div class="fire">
+				<div class="flame"></div>
+				<div class="flame oppsite delay0_3"></div>
+				<div class="flame delay1"></div>
+				<div class="flame oppsite delay1_3"></div>
+				<div class="flame delay2"></div>
+				<div class="flame oppsite delay2_3"></div>
+			</div>
+			<div class="wood">
+				<div class="stick oppsite"></div>
+				<div class="stick"></div>
+			</div>
+		</div>
+</body>
+</html>
